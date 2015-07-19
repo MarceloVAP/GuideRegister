@@ -1,5 +1,5 @@
 <?php
-include_once './telas/avisosEjustificativas/ValidacaoJustificativa.php';
+include_once './telas/avisosEjustificativas/ValidacaoAvisosEJustificativa.php';
 if (!isset($_GET['opcao'])) {
     include_once 'telas/inicial.php';
 } else {
@@ -33,7 +33,8 @@ if (!isset($_GET['opcao'])) {
                             <?php echo $errosValidacao['conteudoAviso']; ?>
                         </span>
                     <?php endif; ?>
-                    <textarea placeholder="Conteúdo..." rows="5" name="conteudoAviso" class="input-block-level"></textarea><br />
+                    <textarea placeholder="Conteúdo..." rows="5" value="<?php echo $dadosAviso['conteudoAviso']?>" name="conteudoAviso" class="input-block-level"></textarea><br />
+                    <input type="hidden" name="cadNovoAviso"/>
                     <button type="submit" class="btn btn-success"><span class="fa-checkmark"></span> Enviar aviso</button>
 
                 </form>
@@ -86,7 +87,7 @@ if (!isset($_GET['opcao'])) {
                                 <?php echo $errosValidacao['nome']; ?>
                             </span>
                         <?php endif; ?>
-                        <input type="text" id="nome" class="input-block-level" placeholder="Nome do aluno" name="nome" value="<?php echo $projeto['nome']; ?>"><br />
+                        <input type="text" id="nome" class="input-block-level" placeholder="Nome do aluno" name="nome" value="<?php echo $dadosAviso['nome']; ?>"><br />
                     </label>
 
 
@@ -98,7 +99,7 @@ if (!isset($_GET['opcao'])) {
                                 <?php echo $errosValidacao['Curso']; ?>
                             </span>
                         <?php endif; ?>
-                        <input type="text" id="curso" class="input-block-level" placeholder="Curso" name="Curso" value="<?php echo $projeto['Curso']; ?>"><br />
+                        <input type="text" id="curso" class="input-block-level" placeholder="Curso" name="Curso" value="<?php echo $dadosAviso['Curso']; ?>"><br />
                     </label>
 
                     <span class="help-block">Selecione o professor.</span>
@@ -121,7 +122,7 @@ if (!isset($_GET['opcao'])) {
                                 <?php echo $errosValidacao['Just']; ?>
                             </span>
                         <?php endif; ?>
-                        <textarea id="justificativas" class="input-block-level" rows="3" placeholder="Detalhes das Justificativas" name="Just" value="<?php echo $projeto['Just']; ?>" > </textarea> 
+                        <textarea id="justificativas" class="input-block-level" rows="3" placeholder="Detalhes das Justificativas" name="Just" value="<?php echo $dadosAviso['Just']; ?>" > </textarea> 
                     </label>
                     <p>
                         <button class="btn btn-success" type="submit"><span class="fa-checkmark"></span> Criar justificativa</button>
